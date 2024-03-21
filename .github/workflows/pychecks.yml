@@ -1,0 +1,26 @@
+name: Checks
+on: [pull_request]
+
+jobs:
+  python_checks:
+    runs-on: ubuntu-latest
+    name: Lint
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v2
+      - name: Set up Python environment
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.8"
+      - name: flake8 lint
+        uses: reviewdog/action-flake8@v3
+        with:
+          reporter: github-pr-check
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workdir: ./src/backend
+      - name: black formatter
+        uses: reviewdog/action-black@v2
+        with:
+          reporter: github-pr-check
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          workdir: ./src/backend

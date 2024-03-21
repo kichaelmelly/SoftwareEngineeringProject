@@ -1,0 +1,30 @@
+{
+  "name": "src",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "http://127.0.0.1:5000/",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test:e2e": "playwright test",
+    "start-backend": "cd api && env/bin/flask run --no-debugger",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "axios": "^0.26.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^2.5.1",
+    "next": "^12.1.0",
+    "pino": "^7.10.0",
+    "pino-pretty": "^7.6.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.21.1",
+    "cypress": "^9.5.4",
+    "eslint": "^8.10.0",
+    "eslint-config-next": "12.1.0"
+  }
+}
